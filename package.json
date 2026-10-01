@@ -1,0 +1,29 @@
+{
+  "name": "dsh-wechat-classic-theme",
+  "version": "1.1.4",
+  "description": "微信经典绿主题：DeepSeek Harness Desktop 的浅色会话界面。",
+  "type": "module",
+  "license": "MIT",
+  "author": "qiaoshi-dot",
+  "repository": { "type": "git", "url": "git+https://github.com/qiaoshi-dot/dsh-wechat-classic-theme.git" },
+  "homepage": "https://github.com/qiaoshi-dot/dsh-wechat-classic-theme#readme",
+  "bugs": { "url": "https://github.com/qiaoshi-dot/dsh-wechat-classic-theme/issues" },
+  "keywords": ["dsh-plugin", "deepseek-harness", "desktop", "theme", "wechat"],
+  "exports": { ".": "./lib/index.js", "./client": "./lib/client.js", "./package.json": "./package.json" },
+  "files": ["lib", "src", "build.mjs", "cordis.patch.yml", "README.md", "README.zh.md", "LICENSE"],
+  "scripts": { "build": "node build.mjs" },
+  "dsh": {
+    "bundle": { "patch": "./cordis.patch.yml" },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-renderer",
+        "@deepseek-ai/dsh-client-ui-theme",
+        "@deepseek-ai/dsh-client-ui-settings"
+      ]
+    },
+    "compatibility": { "dsh": ">=0.2.0-rc.2", "profiles": ["web", "desktop"] }
+  }
+}
+
